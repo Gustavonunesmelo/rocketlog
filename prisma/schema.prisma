@@ -37,9 +37,9 @@ enum DeliveryStatus {
 model Delivery {
   id      String @id @default(uuid())
   userId  String @map("user_id")
-  address String
+  description String
 
-  status DeliveryStatus @default(PENDING) @map("status")
+  status DeliveryStatus @default(PENDING)
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -55,6 +55,8 @@ model DeliveryLog {
   deliveryId String         @map("delivery_id")
   status     DeliveryStatus @default(PENDING) @map("status")
   timestamp  DateTime       @default(now())
+  description String
+  
 
   delivery Delivery @relation(fields: [deliveryId], references: [id])
 

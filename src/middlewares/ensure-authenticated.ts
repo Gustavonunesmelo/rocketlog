@@ -9,7 +9,8 @@ interface TokenPayload {
   role: string;
 }
 
-function ensureAuthenticated(
+// Add the "export" keyword here
+export function ensureAuthenticated(
   req: Request,
   res: Response,
   next: NextFunction

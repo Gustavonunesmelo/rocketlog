@@ -19,10 +19,10 @@ class UsersController {
     });
 
     if (userWithSameEmail) {
-      throw new AppError("User with this email already exists", 409);
+      throw new AppError("User with this email already exists");
     }
 
-    const hashedPassword = await hash(password, 10);
+    const hashedPassword = await hash(password, 8);
 
     const user = await prisma.user.create({
       data: {
@@ -34,7 +34,7 @@ class UsersController {
 
     const { password: _, ...userWithoutPassword } = user;
 
-    return res.json(userWithoutPassword);
+    return res.status(201).json(userWithoutPassword);
   }
 }
 

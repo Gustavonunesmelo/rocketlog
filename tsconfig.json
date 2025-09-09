@@ -9,7 +9,7 @@
         "./src/*"
       ],
     },
-    "module": "node16",
+    "module": "Node16",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
